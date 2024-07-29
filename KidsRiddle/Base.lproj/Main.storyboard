@@ -41,20 +41,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwX-IN-EFH">
-                                <rect key="frame" x="56" y="346" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Reveal">
-                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                </buttonConfiguration>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bs4-01-RpA">
-                                <rect key="frame" x="258" y="346" width="60" height="35"/>
+                                <rect key="frame" x="159" y="449" width="60" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HW6-yd-PC0"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwX-IN-EFH">
+                                <rect key="frame" x="145" y="347" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reveal">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -63,16 +63,18 @@
                             <constraint firstItem="9IV-Qf-PJH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="06n-r1-N4a"/>
                             <constraint firstItem="Yds-Eu-xgY" firstAttribute="top" secondItem="6yA-8o-Y2U" secondAttribute="bottom" constant="41" id="1Sl-Bd-hGV"/>
                             <constraint firstItem="5Qi-BG-Fec" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="ByJ-4C-GwA"/>
-                            <constraint firstItem="Bs4-01-RpA" firstAttribute="baseline" secondItem="fwX-IN-EFH" secondAttribute="baseline" id="F70-oO-yJB"/>
+                            <constraint firstItem="Bs4-01-RpA" firstAttribute="baseline" secondItem="fwX-IN-EFH" secondAttribute="baseline" constant="102" id="F70-oO-yJB"/>
                             <constraint firstItem="Yds-Eu-xgY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="SdI-NS-7ew"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Qi-BG-Fec" secondAttribute="trailing" constant="26" id="byt-Lt-Pr0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bs4-01-RpA" secondAttribute="trailing" constant="75" id="eki-aj-rsf"/>
+                            <constraint firstItem="fwX-IN-EFH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-14" id="e1t-Uw-nlo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bs4-01-RpA" secondAttribute="trailing" constant="174" id="eki-aj-rsf"/>
                             <constraint firstItem="6yA-8o-Y2U" firstAttribute="leading" secondItem="Yds-Eu-xgY" secondAttribute="leading" id="ims-MR-Ukt"/>
-                            <constraint firstItem="Bs4-01-RpA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="287" id="j8W-0B-s3d"/>
-                            <constraint firstItem="fwX-IN-EFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="kQc-Ke-tRb"/>
+                            <constraint firstItem="Bs4-01-RpA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="390" id="j8W-0B-s3d"/>
+                            <constraint firstItem="fwX-IN-EFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="145" id="kQc-Ke-tRb"/>
                             <constraint firstItem="9IV-Qf-PJH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="pqm-0L-myg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Qi-BG-Fec" secondAttribute="bottom" constant="701.33333333333337" id="t1Y-jG-rWn"/>
                             <constraint firstItem="6yA-8o-Y2U" firstAttribute="top" secondItem="9IV-Qf-PJH" secondAttribute="bottom" constant="49" id="u2z-Mf-Pye"/>
+                            <constraint firstItem="Bs4-01-RpA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-7.5" id="zab-Dm-grf"/>
                         </constraints>
                     </view>
                     <connections>
