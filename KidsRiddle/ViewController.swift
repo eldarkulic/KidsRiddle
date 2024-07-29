@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var currentRiddleIndex: Int = 0
     var isAnswerRevealed: Bool = false
     
+    @IBOutlet weak var nextButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.systemTeal
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
             questionLabel.text = "No riddles available"
             answerLabel.text = ""
         }
+        nextButton.isEnabled = false
+                nextButton.backgroundColor = UIColor.systemGray
     }
     
     func loadRiddles() -> [Riddle]? {
@@ -44,8 +47,11 @@ class ViewController: UIViewController {
     func showRiddle() {
         let riddle = riddles[currentRiddleIndex]
         questionLabel.text = riddle.question
-        answerLabel.text = "??" // Initially hide the answer
+        answerLabel.text = "??"
         isAnswerRevealed = false
+        
+        nextButton.isEnabled = false
+               nextButton.backgroundColor = UIColor.systemGray
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
@@ -58,6 +64,8 @@ class ViewController: UIViewController {
             let riddle = riddles[currentRiddleIndex]
             answerLabel.text = riddle.answer
             isAnswerRevealed = true
+            nextButton.isEnabled = true
+                       nextButton.backgroundColor = UIColor.systemBlue
         }
     }
     
