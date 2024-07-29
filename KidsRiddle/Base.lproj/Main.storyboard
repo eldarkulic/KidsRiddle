@@ -82,6 +82,7 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="Yds-Eu-xgY" id="qPx-89-P1a"/>
+                        <outlet property="nextButton" destination="Bs4-01-RpA" id="6Z3-jH-4xA"/>
                         <outlet property="questionLabel" destination="6yA-8o-Y2U" id="SKW-UQ-g1C"/>
                     </connections>
                 </viewController>
