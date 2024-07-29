@@ -55,6 +55,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Reveal">
                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="revealButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qvd-j4-XjB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,7 +82,6 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="Yds-Eu-xgY" id="qPx-89-P1a"/>
-                        <outlet property="nextButton" destination="Bs4-01-RpA" id="OEw-zi-oav"/>
                         <outlet property="questionLabel" destination="6yA-8o-Y2U" id="SKW-UQ-g1C"/>
                     </connections>
                 </viewController>
