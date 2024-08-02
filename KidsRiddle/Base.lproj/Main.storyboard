@@ -16,21 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="line.3.horizontal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Qi-BG-Fec">
-                                <rect key="frame" x="346" y="91" width="21" height="21"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IV-Qf-PJH">
-                                <rect key="frame" x="167" y="95" width="44" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cMA-yn-R7q">
-                                <rect key="frame" x="135" y="93" width="20" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yA-8o-Y2U">
-                                <rect key="frame" x="152" y="165" width="61.666666666666657" height="18.666666666666657"/>
+                                <rect key="frame" x="152" y="165" width="61" height="18.666666666666657"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,20 +50,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9IV-Qf-PJH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="06n-r1-N4a"/>
                             <constraint firstItem="Yds-Eu-xgY" firstAttribute="top" secondItem="6yA-8o-Y2U" secondAttribute="bottom" constant="41" id="1Sl-Bd-hGV"/>
-                            <constraint firstItem="5Qi-BG-Fec" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="ByJ-4C-GwA"/>
+                            <constraint firstItem="6yA-8o-Y2U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="106" id="7i6-a3-rvg"/>
                             <constraint firstItem="Bs4-01-RpA" firstAttribute="baseline" secondItem="fwX-IN-EFH" secondAttribute="baseline" constant="102" id="F70-oO-yJB"/>
-                            <constraint firstItem="Yds-Eu-xgY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="SdI-NS-7ew"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Qi-BG-Fec" secondAttribute="trailing" constant="26" id="byt-Lt-Pr0"/>
+                            <constraint firstItem="6yA-8o-Y2U" firstAttribute="centerX" secondItem="fwX-IN-EFH" secondAttribute="centerX" id="Plf-28-mMX"/>
+                            <constraint firstItem="Yds-Eu-xgY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SdI-NS-7ew"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yds-Eu-xgY" secondAttribute="trailing" constant="186.66666666666666" id="YRQ-ua-ssB"/>
                             <constraint firstItem="fwX-IN-EFH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-14" id="e1t-Uw-nlo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bs4-01-RpA" secondAttribute="trailing" constant="174" id="eki-aj-rsf"/>
                             <constraint firstItem="6yA-8o-Y2U" firstAttribute="leading" secondItem="Yds-Eu-xgY" secondAttribute="leading" id="ims-MR-Ukt"/>
                             <constraint firstItem="Bs4-01-RpA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="390" id="j8W-0B-s3d"/>
                             <constraint firstItem="fwX-IN-EFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="145" id="kQc-Ke-tRb"/>
-                            <constraint firstItem="9IV-Qf-PJH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="pqm-0L-myg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Qi-BG-Fec" secondAttribute="bottom" constant="701.33333333333337" id="t1Y-jG-rWn"/>
-                            <constraint firstItem="6yA-8o-Y2U" firstAttribute="top" secondItem="9IV-Qf-PJH" secondAttribute="bottom" constant="49" id="u2z-Mf-Pye"/>
                             <constraint firstItem="Bs4-01-RpA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-7.5" id="zab-Dm-grf"/>
                         </constraints>
                     </view>
@@ -92,8 +76,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clock" catalog="system" width="128" height="123"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
