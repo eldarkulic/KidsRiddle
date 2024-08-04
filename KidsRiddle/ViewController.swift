@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var riddleImageView: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     var riddles: [Riddle] = []
@@ -49,6 +50,7 @@ class ViewController: UIViewController {
         questionLabel.text = riddle.question
         answerLabel.text = "??"
         isAnswerRevealed = false
+        riddleImageView.image = UIImage(systemName: "questionmark")
         
         nextButton.isEnabled = false
                nextButton.backgroundColor = UIColor.systemGray
@@ -65,6 +67,8 @@ class ViewController: UIViewController {
             answerLabel.text = riddle.answer
             isAnswerRevealed = true
             nextButton.isEnabled = true
+            let lowercasedAnswer = riddle.answer.lowercased()
+            riddleImageView.image = UIImage(named: lowercasedAnswer)
                        nextButton.backgroundColor = UIColor.systemBlue
         }
     }
