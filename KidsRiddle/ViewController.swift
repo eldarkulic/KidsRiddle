@@ -50,7 +50,8 @@ class ViewController: UIViewController {
         questionLabel.text = riddle.question
         answerLabel.text = "??"
         isAnswerRevealed = false
-        riddleImageView.image = UIImage(systemName: "questionmark")
+        riddleImageView.image = UIImage(named: "questionMark")
+
         
         nextButton.isEnabled = false
                nextButton.backgroundColor = UIColor.systemGray
