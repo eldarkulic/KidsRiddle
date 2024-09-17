@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
     @IBOutlet weak var riddleImageView: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
@@ -17,6 +18,7 @@ class ViewController: UIViewController {
     var isAnswerRevealed: Bool = false
     
     @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.systemTeal
@@ -72,6 +74,11 @@ class ViewController: UIViewController {
             riddleImageView.image = UIImage(named: lowercasedAnswer)
                        nextButton.backgroundColor = UIColor.systemBlue
         }
+    }
+    
+    @IBAction func restartButtonTapped(_ sender: UIButton) {
+    currentRiddleIndex = 0
+    showRiddle()
     }
     
 }
