@@ -77,8 +77,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func restartButtonTapped(_ sender: UIButton) {
-    currentRiddleIndex = 0
-    showRiddle()
+        let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
+                  
+                  // Add options to the popup menu
+                  let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
+                      self.currentRiddleIndex = 0
+                      self.showRiddle()
+                  }
+               
+                  let cancelRestart = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                  
+                  alert.addAction(acceptRestart)
+                  alert.addAction(cancelRestart)
+                  self.present(alert, animated: true, completion: nil)
     }
     
 }
