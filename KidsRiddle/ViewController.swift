@@ -74,6 +74,28 @@ class ViewController: UIViewController {
             riddleImageView.image = UIImage(named: lowercasedAnswer)
                        nextButton.backgroundColor = UIColor.systemBlue
         }
+        
+        if currentRiddleIndex == riddles.count - 1 {
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = UIColor.systemGray
+            
+               DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                   let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
+                   
+                   // Add options to the popup menu
+                   let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
+                       self.currentRiddleIndex = 0
+                       self.showRiddle()
+                   }
+                   
+                   let cancelRestart = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                   
+                   alert.addAction(acceptRestart)
+                   alert.addAction(cancelRestart)
+                   self.present(alert, animated: true, completion: nil)
+               }
+        }
+
     }
     
     @IBAction func restartButtonTapped(_ sender: UIButton) {
