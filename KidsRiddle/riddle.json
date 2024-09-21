@@ -1,66 +1,182 @@
 [
-    {"question": "Šta živi u džungli i voli banane?", "answer": "Majmun"},
-    {"question": "Šta leti na nebu i ima krila?", "answer": "Ptica"},
-    {"question": "Koji cvijet ima bodlje?", "answer": "Ruža"},
-    {"question": "Koja životinja laje?", "answer": "Pas"},
-    {"question": "Koja životinja mjauče?", "answer": "Mačka"},
-    {"question": "Šta ima dugački vrat i živi u Africi?", "answer": "Žirafa"},
-    {"question": "Koja životinja voli sir?", "answer": "Miš"},
-    {"question": "Šta ima točkove i vozi djecu u školu?", "answer": "Autobus"},
-    {"question": "Šta je zeleno i raste u dvorištu?", "answer": "Trava"},
-    {"question": "Koja ptica ne može letjeti?", "answer": "Pingvin"},
-    {"question": "Koji insekt pravi med?", "answer": "Pčela"},
-    {"question": "Koja životinja ima surlu?", "answer": "Slon"},
-    {"question": "Šta je žuto i jako toplo?", "answer": "Sunce"},
-    {"question": "Šta raste na drvetu i može biti crveno ili zeleno?", "answer": "Jabuka"},
-    {"question": "Koji cvijet je poznat po svom mirisu?", "answer": "Ljubičica"},
-    {"question": "Koja životinja ima duge uši, skače i voli mrkvu?", "answer": "Zec"},
-    {"question": "Koji insekt ima mnogo nogu?", "answer": "Stonoga"},
-    {"question": "Šta pliva u vodi i ima peraje?", "answer": "Riba"},
-    {"question": "Koja životinja ima grivu i glasno riče?", "answer": "Lav"},
-    {"question": "Šta je malo, crveno i ima crne tačke?", "answer": "Bubamara"},
-    {"question": "Šta pada s neba zimi?", "answer": "Snijeg"},
-    {"question": "Koji insekt može svijetliti u mraku?", "answer": "Svitac"},
-    {"question": "Šta voziš i ima dva točka?", "answer": "Bicikl"},
-    {"question": "Koji cvijet ima sunce u svom imenu?", "answer": "Suncokret"},
-    {"question": "Koji insekt pravi mrežu?", "answer": "Pauk"},
-    {"question": "Koja ptica ima dug kljun i voli pecati?", "answer": "Pelikan"},
-    {"question": "Šta je crveno, okruglo i raste u vrtu?", "answer": "Paradajz"},
-    {"question": "Koja životinja voli jesti listove eukaliptusa?", "answer": "Koala"},
-    {"question": "Šta je zeleno, krekeće i može skakati?", "answer": "Žaba"},
-    {"question": "Koja životinja ima pruge i živi u džungli?", "answer": "Tigar"},
-    {"question": "Koji insekt ima krila i voli cvijeće?", "answer": "Leptir"},
-    {"question": "Koja životinja voli jesti travu i ima rogove?", "answer": "Koza"},
-    {"question": "Šta je bijelo, raste na polju i možemo praviti brašno od njega?", "answer": "Pšenica"},
-    {"question": "Koja životinja ima ljuske i hoda po zemlji?", "answer": "Gušter"},
-    {"question": "Šta je žuto i kiselo?", "answer": "Limun"},
-    {"question": "Koja životinja ima rep i voli plivati?", "answer": "Vidra"},
-    {"question": "Šta je slatko i dolazi u raznim okusima?", "answer": "Sladoled"},
-    {"question": "Šta je crveno i raste na grmu, a često se koristi za džem?", "answer": "Malina"},
-    {"question": "Koji cvijet raste na vodi i ima velike listove?", "answer": "Lotos"},
-    {"question": "Šta je šareno i dolazi poslije kiše?", "answer": "Duga"},
-    {"question": "Koja životinja ima klješta i živi u moru?", "answer": "Rak"},
-    {"question": "Koja ptica ima duge noge i stoji na jednoj nozi?", "answer": "Flamingo"},
-    {"question": "Koja životinja ima krila, ali nije ptica?", "answer": "Šišmiš"},
-    {"question": "Šta je crveno i ima mnogo sjemenki unutra?", "answer": "Nar"},
-    {"question": "Šta je crveno i ponekad ljuto?", "answer": "Paprika"},
-    {"question": "Šta je slatko i napravljeno od meda?", "answer": "Medena torta"},
-    {"question": "Koja životinja ima brkove i živi u rupi?", "answer": "Dabar"},
-    {"question": "Koji cvijet ima miris lavande?", "answer": "Lavanda"},
-    {"question": "Koja životinja ima ljuske i živi u moru?", "answer": "Školjka"},
-    {"question": "Šta je crveno, slatko i raste na vinovoj lozi?", "answer": "Grožđe"},
-    {"question": "Koja životinja ima krila i voli jesti cvijeće?", "answer": "Kolibri"},
-    {"question": "Šta je crveno, slatko i ima jednu sjemenku unutra?", "answer": "Trešnja"},
-    {"question": "Šta je zeleno i raste u šumi?", "answer": "Drvo"},
-    {"question": "Koja životinja ima perje i može govoriti?", "answer": "Papagaj"},
-    {"question": "Šta je crveno i ima mnogo sjemenki na površini?", "answer": "Jagoda"},
-    {"question": "Koja životinja ima šiljaste uši i voli mjesec?", "answer": "Vuk"},
-    {"question": "Šta je narandžasto i raste u vrtu?", "answer": "Mrkva"},
-    {"question": "Šta je bijelo i leti na nebu?", "answer": "Oblak"},
-    {"question": "Koja životinja ima krzno i spava zimi?", "answer": "Medvjed"},
-    {"question": "Šta je zeleno i može biti dugačko i usko?", "answer": "Krastavac"},
-    {"question": "Koja životinja živi u pustinji i ima grbu?", "answer": "Deva"},
-    {"question": "Šta je žuto i visi sa grane?", "answer": "Banana"},
-    {"question": "Šta je bijelo i izlazi iz krave?", "answer": "Mlijeko"},
-    {"question": "Koja životinja ima dugačke noge i može brzo trčati?", "answer": "Konj"}
+    {
+        "question": "Šta živi u džungli i voli banane?",
+        "answer": "Majmun",
+        "options": ["Majmun", "Zec", "Tigar"]
+    },
+    {
+        "question": "Šta leti na nebu i ima krila?",
+        "answer": "Ptica",
+        "options": ["Ptica", "Avion", "Insekt"]
+    },
+    {
+        "question": "Koji cvijet ima bodlje?",
+        "answer": "Ruža",
+        "options": ["Ruža", "Suncokret", "Ljubičica"]
+    },
+    {
+        "question": "Koja životinja laje?",
+        "answer": "Pas",
+        "options": ["Pas", "Mačka", "Zec"]
+    },
+    {
+        "question": "Koja životinja mjauče?",
+        "answer": "Mačka",
+        "options": ["Pas", "Mačka", "Sova"]
+    },
+    {
+        "question": "Šta ima dugački vrat i živi u Africi?",
+        "answer": "Žirafa",
+        "options": ["Žirafa", "Slon", "Tigar"]
+    },
+    {
+        "question": "Koja životinja voli sir?",
+        "answer": "Miš",
+        "options": ["Mačka", "Miš", "Pauk"]
+    },
+    {
+        "question": "Šta ima točkove i vozi djecu u školu?",
+        "answer": "Autobus",
+        "options": ["Bicikl", "Autobus", "Tramvaj"]
+    },
+    {
+        "question": "Šta je zeleno, nisko i prekriva tlo u dvorištu?",
+        "answer": "Trava",
+        "options": ["Trava", "Cvijet", "Drvo"]
+    },
+    {
+        "question": "Koja ptica ne može letjeti?",
+        "answer": "Pingvin",
+        "options": ["Pingvin", "Orao", "Vrana"]
+    },
+    {
+        "question": "Koja životinja ima surlu?",
+        "answer": "Slon",
+        "options": ["Slon", "Krokodil", "Žirafa"]
+    },
+    {
+        "question": "Koje voće je žuto i može se praviti sok?",
+        "answer": "Limun",
+        "options": ["Limun", "Jabuka", "Malina"]
+    },
+    {
+        "question": "Koja ptica ima duge noge i stoji na jednoj nozi?",
+        "answer": "Flamingo",
+        "options": ["Flamingo", "Pingvin", "Golub"]
+    },
+    {
+        "question": "Šta pliva u vodi i ima peraje?",
+        "answer": "Riba",
+        "options": ["Žaba", "Riba", "Delfin"]
+    },
+    {
+        "question": "Koja životinja ima šiljaste uši i voli mjesec?",
+        "answer": "Vuk",
+        "options": ["Vuk", "Lepter", "Pas"]
+    },
+    {
+        "question": "Šta je bijelo i leti na nebu?",
+        "answer": "Oblak",
+        "options": ["Oblak", "Ptica", "Avion"]
+    },
+    {
+        "question": "Koja životinja ima krzno i spava zimi?",
+        "answer": "Medvjed",
+        "options": ["Medvjed", "Zec", "Mačka"]
+    },
+    {
+        "question": "Šta je zeleno i može biti dugačko i usko?",
+        "answer": "Krastavac",
+        "options": ["Krastavac", "Zeleno povrće", "Luk"]
+    },
+    {
+        "question": "Koja životinja živi u pustinji i ima grbu?",
+        "answer": "Deva",
+        "options": ["Deva", "Zec", "Pas"]
+    },
+    {
+        "question": "Šta je žuto i visi sa grane?",
+        "answer": "Banana",
+        "options": ["Limun", "Banana", "Jabuka"]
+    },
+    {
+        "question": "Šta je bijelo i izlazi iz krave?",
+        "answer": "Mlijeko",
+        "options": ["Mlijeko", "Jaja", "Sir"]
+    },
+    {
+        "question": "Koja životinja ima dugačke noge i može brzo trčati?",
+        "answer": "Konj",
+        "options": ["Konj", "Zec", "Pas"]
+    },
+    {
+        "question": "Koji insekt pravi med?",
+        "answer": "Pčela",
+        "options": ["Pčela", "Mrav", "Moljac"]
+    },
+    {
+        "question": "Koja životinja ima krila, ali nije ptica?",
+        "answer": "Šišmiš",
+        "options": ["Šišmiš", "Pauk", "Bubamara"]
+    },
+    {
+        "question": "Koji insekt ima mnogo nogu?",
+        "answer": "Stonoga",
+        "options": ["Stonoga", "Mrav", "Pčela"]
+    },
+    {
+        "question": "Šta je sočno, crveno i sadrži brojne sjemenke koje se lako jedu?",
+        "answer": "Nar",
+        "options": ["Nar", "Trešnja", "Grožđe"]
+    },
+    {
+        "question": "Šta je crveno i ponekad ljuto?",
+        "answer": "Paprika",
+        "options": ["Paprika", "Jabuka", "Trešnja"]
+    },
+    {
+        "question": "Šta je slatko i napravljeno od meda?",
+        "answer": "Medena torta",
+        "options": ["Medena torta", "Čokolada", "Sladoled"]
+    },
+    {
+        "question": "Koji cvijet ima miris lavande?",
+        "answer": "Lavanda",
+        "options": ["Lavanda", "Ruža", "Suncokret"]
+    },
+    {
+        "question": "Koji cvijet raste na vodi i ima velike listove?",
+        "answer": "Lotos",
+        "options": ["Lotos", "Ruže", "Suncokret"]
+    },
+    {
+        "question": "Koja životinja ima klješta i živi u moru?",
+        "answer": "Rak",
+        "options": ["Rak", "Riba", "Delfin"]
+    },
+    {
+        "question": "Šta je šareno i dolazi poslije kiše?",
+        "answer": "Duga",
+        "options": ["Duga", "Oblak", "Cvijet"]
+    },
+    {
+        "question": "Koja životinja ima perje i može govoriti?",
+        "answer": "Papagaj",
+        "options": ["Papagaj", "Ptica", "Vrabac"]
+    },
+    {
+        "question": "Šta je malo, crveno i ima crne tačke?",
+        "answer": "Bubamara",
+        "options": ["Bubamara", "Pčela", "Vrabac"]
+    },
+    {
+        "question": "Šta pada s neba zimi?",
+        "answer": "Snijeg",
+        "options": ["Snijeg", "Kiša", "Oluja"]
+    },
+    {
+        "question": "Koji insekt može svijetliti u mraku?",
+        "answer": "Svitac",
+        "options": ["Svitac", "Pčela", "Bubamara"]
+    }
 ]
