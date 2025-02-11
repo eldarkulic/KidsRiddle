@@ -9,29 +9,86 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-    @IBOutlet weak var riddleImageView: UIImageView!
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var answerLabel: UILabel!
     var riddles: [Riddle] = []
     var currentRiddleIndex: Int = 0
     var isAnswerRevealed: Bool = false
     
-    @IBOutlet weak var nextButton: UIButton!
+    // UI Elements
+    let riddleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Koja životinja laje?"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let answerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Ker?"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "questionMark")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let showButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Prikaži", for: .normal)
+        button.backgroundColor = .systemGreen
+        button.tintColor = .white
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Nastavi", for: .normal)
+        button.backgroundColor = .lightGray
+        button.tintColor = .white
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let restartButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Restart", for: .normal)
+        button.backgroundColor = .lightGray
+        button.tintColor = .white
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.systemTeal
+        view.backgroundColor = UIColor(red: 0.3, green: 0.8, blue: 0.9, alpha: 1.0)
         
+        // Add subviews
+        view.addSubview(riddleLabel)
+        view.addSubview(imageView)
+        view.addSubview(showButton)
+        view.addSubview(nextButton)
+        
+        // Set constraints
+        setupConstraints()
         if let loadedRiddles = loadRiddles() {
             riddles = loadedRiddles
             showRiddle()
         } else {
-            questionLabel.text = "No riddles available"
+            riddleLabel.text = "No riddles available"
             answerLabel.text = ""
         }
-        nextButton.isEnabled = false
-                nextButton.backgroundColor = UIColor.systemGray
     }
     
     func loadRiddles() -> [Riddle]? {
@@ -47,72 +104,89 @@ class ViewController: UIViewController {
         return nil
     }
     
-    func showRiddle() {
-        let riddle = riddles[currentRiddleIndex]
-        questionLabel.text = riddle.question
-        answerLabel.text = "??"
-        isAnswerRevealed = false
-        riddleImageView.image = UIImage(named: "questionMark")
-
-        
-        nextButton.isEnabled = false
-               nextButton.backgroundColor = UIColor.systemGray
-    }
     
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
+    func nextButtonTapped(_ sender: UIButton) {
         currentRiddleIndex = (currentRiddleIndex + 1) % riddles.count
         showRiddle()
     }
     
-    @IBAction func revealButtonTapped(_ sender: UIButton) {
+    func revealButtonTapped(_ sender: UIButton) {
         if !isAnswerRevealed {
             let riddle = riddles[currentRiddleIndex]
             answerLabel.text = riddle.answer
             isAnswerRevealed = true
             nextButton.isEnabled = true
             let lowercasedAnswer = riddle.answer.lowercased()
-            riddleImageView.image = UIImage(named: lowercasedAnswer)
-                       nextButton.backgroundColor = UIColor.systemBlue
+            imageView.image = UIImage(named: lowercasedAnswer)
+            nextButton.backgroundColor = UIColor.systemBlue
         }
         
         if currentRiddleIndex == riddles.count - 1 {
             nextButton.isEnabled = false
             nextButton.backgroundColor = UIColor.systemGray
             
-               DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                   let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
-                   
-                   // Add options to the popup menu
-                   let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
-                       self.currentRiddleIndex = 0
-                       self.showRiddle()
-                   }
-                   
-                   let cancelRestart = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                   
-                   alert.addAction(acceptRestart)
-                   alert.addAction(cancelRestart)
-                   self.present(alert, animated: true, completion: nil)
-               }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
+                
+                // Add options to the popup menu
+                let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
+                    self.currentRiddleIndex = 0
+                    self.showRiddle()
+                }
+                
+                let cancelRestart = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                
+                alert.addAction(acceptRestart)
+                alert.addAction(cancelRestart)
+                self.present(alert, animated: true, completion: nil)
+            }}}
+        
+        
+        
+        func showRiddle() {
+            let riddle = riddles[currentRiddleIndex]
+            riddleLabel.text = riddle.question
+            answerLabel.text = "??"
+            isAnswerRevealed = false
+            //  riddleImageView.image = UIImage(named: "questionMark")
         }
-
+        
+        func restartButtonTapped(_ sender: UIButton) {
+            let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
+            
+            // Add options to the popup menu
+            let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
+                self.currentRiddleIndex = 0
+                self.showRiddle()
+            }
+            
+            let cancelRestart = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(acceptRestart)
+            alert.addAction(cancelRestart)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+         private func setupConstraints() {
+            NSLayoutConstraint.activate([
+                riddleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                riddleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
+                imageView.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 20),
+                imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                imageView.widthAnchor.constraint(equalToConstant: 200),
+                imageView.heightAnchor.constraint(equalToConstant: 200),
+                
+                showButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                showButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+                showButton.heightAnchor.constraint(equalToConstant: 50),
+                showButton.widthAnchor.constraint(equalToConstant: 120),
+                
+                nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+                nextButton.heightAnchor.constraint(equalToConstant: 50),
+                nextButton.widthAnchor.constraint(equalToConstant: 120)
+            ])
+        }
     }
-    
-    @IBAction func restartButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
-                  
-                  // Add options to the popup menu
-                  let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
-                      self.currentRiddleIndex = 0
-                      self.showRiddle()
-                  }
-               
-                  let cancelRestart = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                  
-                  alert.addAction(acceptRestart)
-                  alert.addAction(cancelRestart)
-                  self.present(alert, animated: true, completion: nil)
-    }
-    
-}
 
