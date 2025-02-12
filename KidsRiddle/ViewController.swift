@@ -79,7 +79,8 @@ class ViewController: UIViewController {
         view.addSubview(imageView)
         view.addSubview(showButton)
         view.addSubview(nextButton)
-        
+        view.addSubview(answerLabel)
+
         // Set constraints
         setupConstraints()
         if let loadedRiddles = loadRiddles() {
@@ -176,7 +177,10 @@ class ViewController: UIViewController {
                 imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 imageView.widthAnchor.constraint(equalToConstant: 200),
                 imageView.heightAnchor.constraint(equalToConstant: 200),
-                
+       
+                answerLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+                answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
                 showButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 showButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
                 showButton.heightAnchor.constraint(equalToConstant: 50),
