@@ -16,8 +16,9 @@ class ViewController: UIViewController {
     // UI Elements
     let riddleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Koja životinja laje?"
         label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -25,7 +26,6 @@ class ViewController: UIViewController {
     
     let answerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ker?"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -174,10 +174,12 @@ class ViewController: UIViewController {
         
          private func setupConstraints() {
             NSLayoutConstraint.activate([
-                riddleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
                 riddleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                riddleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                riddleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                riddleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                 
-                imageView.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 20),
+                imageView.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 35),
                 imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 imageView.widthAnchor.constraint(equalToConstant: 200),
                 imageView.heightAnchor.constraint(equalToConstant: 200),
