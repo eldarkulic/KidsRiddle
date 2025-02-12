@@ -16,8 +16,9 @@ class ViewController: UIViewController {
     // UI Elements
     let riddleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Koja životinja laje?"
         label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -25,7 +26,6 @@ class ViewController: UIViewController {
     
     let answerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ker?"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +79,12 @@ class ViewController: UIViewController {
         view.addSubview(imageView)
         view.addSubview(showButton)
         view.addSubview(nextButton)
-        
+        view.addSubview(answerLabel)
+
+        //button actions
+        showButton.addTarget(self, action: #selector(revealButtonTapped(_:)), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
+
         // Set constraints
         setupConstraints()
         if let loadedRiddles = loadRiddles() {
@@ -105,12 +110,12 @@ class ViewController: UIViewController {
     }
     
     
-    func nextButtonTapped(_ sender: UIButton) {
+    @objc func nextButtonTapped(_ sender: UIButton) {
         currentRiddleIndex = (currentRiddleIndex + 1) % riddles.count
         showRiddle()
     }
     
-    func revealButtonTapped(_ sender: UIButton) {
+    @objc func revealButtonTapped(_ sender: UIButton) {
         if !isAnswerRevealed {
             let riddle = riddles[currentRiddleIndex]
             answerLabel.text = riddle.answer
@@ -169,14 +174,19 @@ class ViewController: UIViewController {
         
          private func setupConstraints() {
             NSLayoutConstraint.activate([
-                riddleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
                 riddleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                riddleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                riddleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                riddleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                 
-                imageView.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 20),
+                imageView.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 35),
                 imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 imageView.widthAnchor.constraint(equalToConstant: 200),
                 imageView.heightAnchor.constraint(equalToConstant: 200),
-                
+       
+                answerLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+                answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
                 showButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 showButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
                 showButton.heightAnchor.constraint(equalToConstant: 50),
