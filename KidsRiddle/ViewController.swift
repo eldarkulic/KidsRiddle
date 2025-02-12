@@ -81,6 +81,10 @@ class ViewController: UIViewController {
         view.addSubview(nextButton)
         view.addSubview(answerLabel)
 
+        //button actions
+        showButton.addTarget(self, action: #selector(revealButtonTapped(_:)), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
+
         // Set constraints
         setupConstraints()
         if let loadedRiddles = loadRiddles() {
@@ -106,12 +110,12 @@ class ViewController: UIViewController {
     }
     
     
-    func nextButtonTapped(_ sender: UIButton) {
+    @objc func nextButtonTapped(_ sender: UIButton) {
         currentRiddleIndex = (currentRiddleIndex + 1) % riddles.count
         showRiddle()
     }
     
-    func revealButtonTapped(_ sender: UIButton) {
+    @objc func revealButtonTapped(_ sender: UIButton) {
         if !isAnswerRevealed {
             let riddle = riddles[currentRiddleIndex]
             answerLabel.text = riddle.answer
