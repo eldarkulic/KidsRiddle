@@ -112,6 +112,7 @@ class ViewController: UIViewController {
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         currentRiddleIndex = (currentRiddleIndex + 1) % riddles.count
+        imageView.image = UIImage(named: "questionMark")
         showRiddle()
     }
     
