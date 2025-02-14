@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "questionMark")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -180,10 +180,10 @@ class ViewController: UIViewController {
                 riddleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 riddleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                 
-                imageView.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 35),
+                imageView.topAnchor.constraint(equalTo: riddleLabel.bottomAnchor, constant: 50),
                 imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                imageView.widthAnchor.constraint(equalToConstant: 200),
-                imageView.heightAnchor.constraint(equalToConstant: 200),
+                imageView.widthAnchor.constraint(equalToConstant: 300),
+                imageView.heightAnchor.constraint(equalToConstant: 300),
        
                 answerLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
                 answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
