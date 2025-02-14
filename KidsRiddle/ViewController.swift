@@ -37,6 +37,13 @@ class ViewController: UIViewController {
         imageView.image = UIImage(named: "questionMark")
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 15
+    //    imageView.clipsToBounds = true
+        
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOpacity = 0.35
+        imageView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        imageView.layer.shadowRadius = 8 
         return imageView
     }()
     
