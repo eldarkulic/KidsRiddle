@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOpacity = 0.35
         imageView.layer.shadowOffset = CGSize(width: 5, height: 5)
-        imageView.layer.shadowRadius = 8 
+        imageView.layer.shadowRadius = 8
         return imageView
     }()
     
@@ -87,11 +87,13 @@ class ViewController: UIViewController {
         view.addSubview(showButton)
         view.addSubview(nextButton)
         view.addSubview(answerLabel)
-
+        view.addSubview(restartButton)
+        
         //button actions
         showButton.addTarget(self, action: #selector(revealButtonTapped(_:)), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
-
+        restartButton.addTarget(self, action: #selector(restartButtonTapped(_:)), for: .touchUpInside)
+        
         // Set constraints
         setupConstraints()
         if let loadedRiddles = loadRiddles() {
@@ -164,7 +166,7 @@ class ViewController: UIViewController {
             //  riddleImageView.image = UIImage(named: "questionMark")
         }
         
-        func restartButtonTapped(_ sender: UIButton) {
+    @objc func restartButtonTapped(_ sender: UIButton) {
             let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
             
             // Add options to the popup menu
@@ -182,8 +184,13 @@ class ViewController: UIViewController {
         
          private func setupConstraints() {
             NSLayoutConstraint.activate([
+                restartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                restartButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+                restartButton.heightAnchor.constraint(equalToConstant: 40),
+                restartButton.widthAnchor.constraint(equalToConstant: 120),
+
                 riddleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                riddleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                riddleLabel.topAnchor.constraint(equalTo: restartButton.bottomAnchor, constant: 10),
                 riddleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 riddleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                 
@@ -207,4 +214,3 @@ class ViewController: UIViewController {
             ])
         }
     }
-
