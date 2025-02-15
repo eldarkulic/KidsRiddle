@@ -69,13 +69,21 @@ class ViewController: UIViewController {
     
     let restartButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Restart", for: .normal)
+        
+        
+        let image = UIImage(systemName: "arrow.counterclockwise")
+        button.setImage(image, for: .normal)
+        
         button.backgroundColor = .lightGray
         button.tintColor = .white
         button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.imageView?.contentMode = .scaleAspectFit
+        
         return button
     }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,7 +171,6 @@ class ViewController: UIViewController {
             riddleLabel.text = riddle.question
             answerLabel.text = "??"
             isAnswerRevealed = false
-            //  riddleImageView.image = UIImage(named: "questionMark")
         }
         
     @objc func restartButtonTapped(_ sender: UIButton) {
@@ -187,7 +194,7 @@ class ViewController: UIViewController {
                 restartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                 restartButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
                 restartButton.heightAnchor.constraint(equalToConstant: 40),
-                restartButton.widthAnchor.constraint(equalToConstant: 120),
+                restartButton.widthAnchor.constraint(equalToConstant: 40),
 
                 riddleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 riddleLabel.topAnchor.constraint(equalTo: restartButton.bottomAnchor, constant: 10),
