@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     var currentRiddleIndex: Int = 0
     var isAnswerRevealed: Bool = false
     
-    
     // UI Elements
     let riddleLabel: UILabel = {
         let label = UILabel()
@@ -97,6 +96,18 @@ class ViewController: UIViewController {
         return button
     }()
     
+    //Settings Menu
+    let settingsMenu = UIMenu(title: "Postavke", children: [
+        UIAction(title: "Broj zagonetki") { _ in
+            print("Limit Riddles tapped")
+        },
+        UIAction(title: "Jezik") { _ in
+            print("Change Language tapped")
+        },
+        UIAction(title: "Pošalji feedback") { _ in
+            print("Send Feedback tapped")
+        }
+    ])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,21 +137,8 @@ class ViewController: UIViewController {
             answerLabel.text = ""
         }
         
-        //Settings Menu
-        let settingsMenu = UIMenu(title: "Postavke", children: [
-            UIAction(title: "Limit Riddles", image: UIImage(systemName: "number")) { _ in
-                print("Limit Riddles tapped")
-            },
-            UIAction(title: "Send Feedback", image: UIImage(systemName: "envelope")) { _ in
-                print("Send Feedback tapped")
-            },
-            UIAction(title: "Language", image: UIImage(systemName: "globe")) { _ in
-                print("Change Language tapped")
-            }
-        ])
-        
         settingsButton.menu = settingsMenu
-        settingsButton.showsMenuAsPrimaryAction
+        settingsButton.showsMenuAsPrimaryAction = true
     }
     
     func loadRiddles() -> [Riddle]? {
