@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     var currentRiddleIndex: Int = 0
     var isAnswerRevealed: Bool = false
     
+    lazy var maxRiddles: Int = {
+        return riddles.count
+    }()
+    
     // UI Elements
     let riddleLabel: UILabel = {
         let label = UILabel()
@@ -96,19 +100,6 @@ class ViewController: UIViewController {
         return button
     }()
     
-    //Settings Menu
-    let settingsMenu = UIMenu(title: "Postavke", children: [
-        UIAction(title: "Broj zagonetki") { _ in
-            print("Limit Riddles tapped")
-        },
-        UIAction(title: "Jezik") { _ in
-            print("Change Language tapped")
-        },
-        UIAction(title: "Pošalji feedback") { _ in
-            print("Send Feedback tapped")
-        }
-    ])
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.3, green: 0.8, blue: 0.9, alpha: 1.0)
@@ -136,9 +127,23 @@ class ViewController: UIViewController {
             riddleLabel.text = "No riddles available"
             answerLabel.text = ""
         }
+        //Settings Menu
+        let settingsMenu = UIMenu(title: "Postavke", children: [
+            UIAction(title: "Broj zagonetki") { [weak self] _ in
+                self?.showLimitRiddlesAlert()
+            },
+            UIAction(title: "Jezik") { _ in
+                print("Change Language tapped")
+            },
+            UIAction(title: "Pošalji feedback") { _ in
+                print("Send Feedback tapped")
+            }
+        ])
         
         settingsButton.menu = settingsMenu
         settingsButton.showsMenuAsPrimaryAction = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⚙️", menu: settingsMenu)
+        
     }
     
     func loadRiddles() -> [Riddle]? {
@@ -154,6 +159,39 @@ class ViewController: UIViewController {
         return nil
     }
     
+    func showLimitRiddlesAlert() {
+        let alert = UIAlertController(title: "Ograniči broj zagonetki",
+                                      message: "Unesi maksimalan broj pitanja:",
+                                      preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Unesite broj"
+            textField.keyboardType = .numberPad
+        }
+        
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            if let text = alert.textFields?.first?.text, let number = Int(text), number > 0 {
+                guard let self = self else { return }  // Unwrapping weak self
+                
+                self.maxRiddles = number
+                self.currentRiddleIndex = 0
+                self.imageView.image = UIImage(named: "questionMark")
+                self.showRiddle()
+                
+                print("Maksimalan broj zagonetki postavljen na: \(number)")
+            } else {
+                print("Neispravan unos")
+            }
+        }
+        
+        
+        let cancelAction = UIAlertAction(title: "Otkaži", style: .cancel, handler: nil)
+        
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         currentRiddleIndex = (currentRiddleIndex + 1) % riddles.count
@@ -172,16 +210,17 @@ class ViewController: UIViewController {
             nextButton.backgroundColor = UIColor.systemBlue
         }
         
-        if currentRiddleIndex == riddles.count - 1 {
+        if currentRiddleIndex == maxRiddles {
             nextButton.isEnabled = false
             nextButton.backgroundColor = UIColor.systemGray
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 let alert = UIAlertController(title: "Da li želite da počnete ispočetka?", message: nil, preferredStyle: .actionSheet)
                 
                 // Add options to the popup menu
                 let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
                     self.currentRiddleIndex = 0
+                    self.imageView.image = UIImage(named: "questionMark")
                     self.showRiddle()
                 }
                 
@@ -207,6 +246,7 @@ class ViewController: UIViewController {
         // Add options to the popup menu
         let acceptRestart = UIAlertAction(title: "Da!", style: .default) { _ in
             self.currentRiddleIndex = 0
+            self.imageView.image = UIImage(named: "questionMark")
             self.showRiddle()
         }
         
