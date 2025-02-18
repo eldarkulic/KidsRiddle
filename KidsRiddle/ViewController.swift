@@ -4,10 +4,10 @@
 //
 //  Created by Eldar on 26. 7. 2024..
 //
-
+import MessageUI
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var riddles: [Riddle] = []
     var currentRiddleIndex: Int = 0
@@ -135,8 +135,8 @@ class ViewController: UIViewController {
             UIAction(title: "Jezik") { _ in
                 print("Change Language tapped")
             },
-            UIAction(title: "Pošalji feedback") { _ in
-                print("Send Feedback tapped")
+            UIAction(title: "Pošalji feedback") {  [weak self] _ in
+                self?.sendFeedback()
             }
         ])
         
@@ -145,6 +145,26 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⚙️", menu: settingsMenu)
         
     }
+    
+    func sendFeedback() {
+            guard MFMailComposeViewController.canSendMail() else {
+                print("Mail services are not available")
+                return
+            }
+
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+            mailComposer.setToRecipients(["eldar.kulic.dev@gmail.com"])
+            mailComposer.setSubject("Feedback for Your App")
+            mailComposer.setMessageBody("Hello Eldar,\n\nI would like to share the following feedback about your app:\n\n", isHTML: false)
+            
+            present(mailComposer, animated: true)
+        }
+    
+        func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true)
+        }
+
     
     func loadRiddles() -> [Riddle]? {
         if let url = Bundle.main.url(forResource: "riddle", withExtension: "json") {
