@@ -132,8 +132,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, UIT
             UIAction(title: "Broj zagonetki") { [weak self] _ in
                 self?.showLimitRiddlesAlert()
             },
-            UIAction(title: "Jezik") { _ in
-                print("Change Language tapped")
+            UIAction(title: "Jezik", attributes: .disabled) { _ in
+                print("Not working")
             },
             UIAction(title: "Pošalji feedback") {  [weak self] _ in
                 self?.sendFeedback()
