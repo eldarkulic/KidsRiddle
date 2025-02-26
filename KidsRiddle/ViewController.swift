@@ -7,7 +7,7 @@
 import MessageUI
 import UIKit
 
-class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     
     var riddles: [Riddle] = []
     var currentRiddleIndex: Int = 0
@@ -164,7 +164,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             controller.dismiss(animated: true)
         }
-
     
     func loadRiddles() -> [Riddle]? {
         if let url = Bundle.main.url(forResource: "riddle", withExtension: "json") {
@@ -181,29 +180,23 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     func showLimitRiddlesAlert() {
         let alert = UIAlertController(title: "Ograniči broj zagonetki",
-                                      message: "Unesi maksimalan broj pitanja:",
+                                      message: "Unesi broj pitanja (maksimalno \(riddles.count)):",
                                       preferredStyle: .alert)
         
         alert.addTextField { textField in
             textField.placeholder = "Unesite broj"
             textField.keyboardType = .numberPad
+            textField.delegate = self
         }
         
         let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            if let text = alert.textFields?.first?.text, let number = Int(text), number > 0 {
-                guard let self = self else { return }  // Unwrapping weak self
-                
-                self.maxRiddles = number
-                self.currentRiddleIndex = 0
-                self.imageView.image = UIImage(named: "questionMark")
-                self.showRiddle()
-                
-                print("Maksimalan broj zagonetki postavljen na: \(number)")
-            } else {
-                print("Neispravan unos")
-            }
-        }
-        
+                   if let text = alert.textFields?.first?.text, let number = Int(text), number > 0, number <= self?.riddles.count ?? 0 {
+                       self?.maxRiddles = number
+                       print("Maksimalan broj zagonetki postavljen na: \(number)")
+                   } else {
+                       print("Neispravan unos")
+                   }
+               }
         
         let cancelAction = UIAlertAction(title: "Otkaži", style: .cancel, handler: nil)
         
@@ -212,6 +205,26 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         present(alert, animated: true)
     }
+    
+    // UITextFieldDelegate
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            let maxRiddles = riddles.count
+            
+            let allowedCharacters = CharacterSet.decimalDigits
+            if string.rangeOfCharacter(from: allowedCharacters.inverted) != nil {
+                return false
+            }
+            
+            
+            if let currentText = textField.text as NSString? {
+                let newText = currentText.replacingCharacters(in: range, with: string)
+                if let number = Int(newText), number > maxRiddles {
+                    return false
+                }
+            }
+            
+            return true
+        }
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         currentRiddleIndex = (currentRiddleIndex + 1) % riddles.count
