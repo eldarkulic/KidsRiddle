@@ -112,6 +112,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         view.addSubview(answerLabel)
         view.addSubview(restartButton)
         view.addSubview(settingsButton)
+        setupNavigationBar()
         
         //button actions
         showButton.addTarget(self, action: #selector(revealButtonTapped(_:)), for: .touchUpInside)
@@ -145,6 +146,11 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⚙️", menu: settingsMenu)
         
     }
+    
+    func setupNavigationBar() {
+            let userName = UserDefaults.standard.string(forKey: "userName") ?? "Gost"
+           navigationItem.title = userName
+        }
     
     func sendFeedback() {
             guard MFMailComposeViewController.canSendMail() else {
