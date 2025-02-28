@@ -7,7 +7,7 @@
 import MessageUI
 import UIKit
 
-class ViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
+class MainViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     
     var riddles: [Riddle] = []
     var currentRiddleIndex: Int = 0
