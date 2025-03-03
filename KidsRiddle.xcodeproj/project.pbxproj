@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		7818E22E2C56E9B6008935B5 /* riddle.json in Resources */ = {isa = PBXBuildFile; fileRef = 7818E22D2C56E9B6008935B5 /* riddle.json */; };
 		7818E2302C56EA42008935B5 /* Riddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7818E22F2C56EA42008935B5 /* Riddle.swift */; };
+		784A8D3B2D71C5390086A215 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A8D3A2D71C5390086A215 /* WelcomeViewController.swift */; };
 		78C5AB282C53F9BC008A9439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5AB272C53F9BC008A9439 /* AppDelegate.swift */; };
 		78C5AB2A2C53F9BC008A9439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5AB292C53F9BC008A9439 /* SceneDelegate.swift */; };
-		78C5AB2C2C53F9BC008A9439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5AB2B2C53F9BC008A9439 /* ViewController.swift */; };
+		78C5AB2C2C53F9BC008A9439 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5AB2B2C53F9BC008A9439 /* MainViewController.swift */; };
 		78C5AB312C53F9BE008A9439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C5AB302C53F9BE008A9439 /* Assets.xcassets */; };
 		78C5AB342C53F9BE008A9439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C5AB322C53F9BE008A9439 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,10 +20,11 @@
 /* Begin PBXFileReference section */
 		7818E22D2C56E9B6008935B5 /* riddle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = riddle.json; sourceTree = "<group>"; };
 		7818E22F2C56EA42008935B5 /* Riddle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riddle.swift; sourceTree = "<group>"; };
+		784A8D3A2D71C5390086A215 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		78C5AB242C53F9BC008A9439 /* KidsRiddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsRiddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C5AB272C53F9BC008A9439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78C5AB292C53F9BC008A9439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		78C5AB2B2C53F9BC008A9439 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		78C5AB2B2C53F9BC008A9439 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		78C5AB302C53F9BE008A9439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78C5AB332C53F9BE008A9439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78C5AB352C53F9BE008A9439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +62,8 @@
 			children = (
 				78C5AB272C53F9BC008A9439 /* AppDelegate.swift */,
 				78C5AB292C53F9BC008A9439 /* SceneDelegate.swift */,
-				78C5AB2B2C53F9BC008A9439 /* ViewController.swift */,
+				784A8D3A2D71C5390086A215 /* WelcomeViewController.swift */,
+				78C5AB2B2C53F9BC008A9439 /* MainViewController.swift */,
 				78C5AB302C53F9BE008A9439 /* Assets.xcassets */,
 				78C5AB322C53F9BE008A9439 /* LaunchScreen.storyboard */,
 				78C5AB352C53F9BE008A9439 /* Info.plist */,
@@ -141,7 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78C5AB2C2C53F9BC008A9439 /* ViewController.swift in Sources */,
+				78C5AB2C2C53F9BC008A9439 /* MainViewController.swift in Sources */,
+				784A8D3B2D71C5390086A215 /* WelcomeViewController.swift in Sources */,
 				78C5AB282C53F9BC008A9439 /* AppDelegate.swift in Sources */,
 				78C5AB2A2C53F9BC008A9439 /* SceneDelegate.swift in Sources */,
 				7818E2302C56EA42008935B5 /* Riddle.swift in Sources */,

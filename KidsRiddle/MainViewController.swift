@@ -7,7 +7,7 @@
 import MessageUI
 import UIKit
 
-class ViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
+class MainViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     
     var riddles: [Riddle] = []
     var currentRiddleIndex: Int = 0
@@ -112,6 +112,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, UIT
         view.addSubview(answerLabel)
         view.addSubview(restartButton)
         view.addSubview(settingsButton)
+        setupNavigationBar()
         
         //button actions
         showButton.addTarget(self, action: #selector(revealButtonTapped(_:)), for: .touchUpInside)
@@ -145,6 +146,11 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, UIT
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⚙️", menu: settingsMenu)
         
     }
+    
+    func setupNavigationBar() {
+            let userName = UserDefaults.standard.string(forKey: "userName") ?? "Gost"
+           navigationItem.title = userName
+        }
     
     func sendFeedback() {
             guard MFMailComposeViewController.canSendMail() else {
